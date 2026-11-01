@@ -1897,9 +1897,11 @@ if (dbOk && STARTUP_SCHEMA) {
       console.log('⚠️  Marketing opt-in column migration error:', e.message);
     }
 
-    // Auto-activate trials for ALL existing tenants (one-time migration)
-    try {
-      const defaultDays = parseInt(process.env.DEFAULT_TRIAL_DAYS || '14');
+    // Auto-activate trials for ALL existing tenants (one-time migration).
+    // Offline desktop has no subscription/trial system at all.
+    if (!OFFLINE_MODE) {
+      try {
+        const defaultDays = parseInt(process.env.DEFAULT_TRIAL_DAYS || '14');
       const now = new Date();
       const trialEnd = new Date(now);
       trialEnd.setDate(trialEnd.getDate() + defaultDays);
@@ -1920,9 +1922,10 @@ if (dbOk && STARTUP_SCHEMA) {
           )
       `, [now, trialEnd]);
 
-      console.log(`✅ Auto-activated ${defaultDays}-day trials for all existing tenants`);
-    } catch (e: any) {
-      console.log('⚠️  Trial auto-activation error:', e.message);
+        console.log(`✅ Auto-activated ${defaultDays}-day trials for all existing tenants`);
+      } catch (e: any) {
+        console.log('⚠️  Trial auto-activation error:', e.message);
+      }
     }
 
     // Global trial settings
@@ -3032,7 +3035,7 @@ app.use('*', async (c, next) => {
   c.header('Referrer-Policy', 'strict-origin-when-cross-origin');
   // Content Security Policy
   if (process.env.NODE_ENV === 'production') {
-    c.header('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:47831 ws://127.0.0.1:47831; worker-src 'self' blob:; child-src 'self' blob:; frame-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'");
+    c.header('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' http://127.0.0.1:* ws://127.0.0.1:*; worker-src 'self' blob:; child-src 'self' blob:; frame-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'");
   }
   // No HSTS for the local HTTP desktop server.
   if (process.env.NODE_ENV === 'production' && !OFFLINE_MODE) {
@@ -7228,6 +7231,10 @@ const ASSET_MIME: Record<string, string> = {
   'map': 'application/json',
 };
 const COMPRESSIBLE_EXTS = new Set(['js', 'css', 'json', 'webmanifest', 'svg', 'txt', 'xml', 'map', 'html']);
+// The desktop app talks to localhost, where compression saves no useful time
+// and brotli/gzip level 9 noticeably delays backend startup. The desktop
+// launcher disables it; the hosted web deployment keeps it enabled.
+const STATIC_COMPRESSION_ENABLED = process.env.HSS_STATIC_COMPRESSION !== 'false';
 const ASSET_TYPES_TO_PRECOMPRESS = new Set([
   'index.html', 'favicon.ico', 'vite.svg', 'logo.png',
   'apple-touch-icon.png', 'robots.txt', 'sitemap.xml',
@@ -7249,7 +7256,7 @@ function addToStaticCache(relPath: string): void {
   const content = fs.readFileSync(fullPath);
   let gzip: Buffer | null = null;
   let br: Buffer | null = null;
-  if (COMPRESSIBLE_EXTS.has(ext)) {
+  if (STATIC_COMPRESSION_ENABLED && COMPRESSIBLE_EXTS.has(ext)) {
     try { gzip = gzipSync(content, { level: 9 }); } catch {}
     try { br = brotliCompressSync(content); } catch {}
   }
@@ -7279,7 +7286,7 @@ function buildAssetCache(): void {
     for (const file of ASSET_TYPES_TO_PRECOMPRESS) {
       addToStaticCache(file);
     }
-    console.log(`[Static] Precached ${staticCache.size} assets (brotli+gzip)`);
+    console.log(`[Static] Precached ${staticCache.size} assets (${STATIC_COMPRESSION_ENABLED ? 'brotli+gzip' : 'no compression — local desktop'})`);
   } catch (e: any) {
     console.error('[Static] buildAssetCache error:', e.message);
   }
