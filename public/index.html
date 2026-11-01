@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="sw-TZ">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="content-language" content="sw" />
+    <meta name="google" content="notranslate" />
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>ALFEAN ENTERPRISES — Mfumo wa Usimamizi wa Biashara</title>
+    <meta name="description" content="ALFEAN ENTERPRISES fully ERP software." />
+    <meta name="keywords" content="ALFEAN ENTERPRISES, mfumo wa usimamizi wa biashara, POS, mauzo, bidhaa, madeni, gharama, ripoti, Tanzania" />
+    <meta name="author" content="ALFEAN ENTERPRISES" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#10b981" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Google Fonts removed entirely. The external font CSS + font files were
+         holding the window load event open for ~60s on slow mobile networks
+         (tripping the slow-page alert) and broke the app's offline promise.
+         Tailwind now uses the system font stack, so text renders instantly and
+         works with no network at all. -->
+
+    <!-- ===== CANONICAL ===== -->
+    <link rel="canonical" href="http://127.0.0.1:47831" />
+
+    <!-- ===== HREFLANG / LANGUAGE ===== -->
+    <link rel="alternate" href="http://127.0.0.1:47831" hreflang="sw-TZ" />
+    <link rel="alternate" href="http://127.0.0.1:47831" hreflang="en-TZ" />
+    <link rel="alternate" href="http://127.0.0.1:47831" hreflang="x-default" />
+
+    <!-- ===== GEO TAGS (Tanzania) ===== -->
+    <meta name="geo.region" content="TZ" />
+    <meta name="geo.placename" content="Tanzania" />
+    <meta name="DC.coverage" content="Tanzania" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="ALFEAN ENTERPRISES — Mfumo wa Usimamizi wa Biashara" />
+    <meta property="og:description" content="ALFEAN ENTERPRISES — mfumo kamili wa usimamizi wa biashara: mauzo (POS), bidhaa, madeni, gharama na ripoti. Inafanya kazi kwenye simu, tablet na kompyuta." />
+    <meta property="og:image" content="http://127.0.0.1:47831/logo.png?v=2" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://127.0.0.1:47831" />
+    <meta property="og:locale" content="sw_TZ" />
+    <meta property="og:site_name" content="ALFEAN ENTERPRISES" />
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ALFEAN ENTERPRISES — Mfumo wa Usimamizi wa Biashara" />
+    <meta name="twitter:description" content="ALFEAN ENTERPRISES — mfumo kamili wa usimamizi wa biashara: mauzo (POS), bidhaa, madeni, gharama na ripoti. Inafanya kazi kwenye simu, tablet na kompyuta." />
+    <meta name="twitter:image" content="http://127.0.0.1:47831/logo.png?v=2" />
+
+    <!-- ===== VERIFICATION (Google Search Console) ===== -->
+    <!-- 🔴 IMPORTANT: Replace YOUR_VERIFICATION_CODE with the actual code from https://search.google.com/search-console -->
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+    <!-- Verification for Bing Webmaster Tools (optional) -->
+    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+    <!-- Verification for Yandex (optional) -->
+    <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE" />
+
+    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ALFEAN ENTERPRISES",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Android, iOS",
+      "description": "ALFEAN ENTERPRISES — mfumo kamili wa usimamizi wa biashara: mauzo (POS), bidhaa, madeni, gharama na ripoti. Inafanya kazi kwenye simu, tablet na kompyuta.",
+      "url": "http://127.0.0.1:47831"
+    }
+    </script>
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- PWA / iOS standalone app -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="ALFEAN ENTERPRISES" />
+
+    <!-- Apply the saved theme before first paint so the splash + app shell
+         never flash the wrong theme. Mirrors store/themeStore.js (key: hss-theme). -->
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem('hss-theme');
+          var theme = raw ? (JSON.parse(raw).state || {}).theme : null;
+          document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
+    <!-- Inline loading splash - shows instantly before React loads -->
+    <style>
+      #splash-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 50%, #ecfdf5 100%);
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      [data-theme="dark"] #splash-screen {
+        background: linear-gradient(135deg, #064e3b 0%, #0b1220 55%, #0b1220 100%);
+      }
+      #splash-screen.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .splash-logo-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+        animation: splashPulse 1.5s ease-in-out infinite;
+        margin-bottom: 16px;
+      }
+      .splash-logo-wrap img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: contain;
+           object-fit: contain;
+      }
+      .splash-title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: clamp(14px, 4vw, 20px);
+        font-weight: 700;
+        color: #10b981;
+        letter-spacing: 1px;
+        margin-bottom: 4px;
+        text-align: center;
+        padding: 0 16px;
+        white-space: nowrap;
+      }
+      .splash-subtitle {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 10px;
+        color: #94a3b8;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      [data-theme="dark"] .splash-subtitle {
+        color: #7c8aa0;
+      }
+      .splash-loader {
+        width: 28px;
+        height: 28px;
+        border: 3px solid #d1fae5;
+        border-top-color: #10b981;
+        border-radius: 50%;
+        animation: splashSpin 0.8s linear infinite;
+      }
+      [data-theme="dark"] .splash-loader {
+        border-color: rgba(16, 185, 129, 0.2);
+        border-top-color: #34d399;
+      }
+      @keyframes splashPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15); }
+        50% { transform: scale(1.05); box-shadow: 0 6px 24px rgba(16, 185, 129, 0.25); }
+      }
+      @keyframes splashSpin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-DlySs6zn.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-CZK9ZUC8.js">
+    <link rel="modulepreload" crossorigin href="/assets/alert-AlKuj1Cq.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-TmT_FclV.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-fRRSRhPA.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body>
+    <!-- Loading Splash Screen -->
+    <div id="splash-screen">
+      <div class="splash-logo-wrap">
+        <img src="/logo.png" alt="ALFEAN ENTERPRISES Logo" />
+      </div>
+      <div class="splash-title">ALFEAN ENTERPRISES</div>
+      <div class="splash-subtitle">Mfumo wa Mauzo</div>
+      <div class="splash-loader"></div>
+    </div>
+
+    <div id="root"></div>
+
+    <!-- ============================================================
+         NOSCRIPT FALLBACK — for AI crawlers / bots without JS
+         Contains the full landing page content as static HTML text
+         so GPTBot, Claude-Web, ChatGPT-User, PerplexityBot and others
+         can index it for citation in AI chat responses.
+         ============================================================ -->
+    <noscript>
+      <div style="padding: 2rem; font-family: sans-serif; max-width: 600px; margin: auto; text-align: center;">
+        <h1>ALFEAN ENTERPRISES</h1>
+        <p>Mfumo wa usimamizi wa biashara. Tafadhali washa JavaScript ili kuendelea.</p>
+        <p><a href="http://127.0.0.1:47831/login">Ingia</a></p>
+      </div>
+    </noscript>
+
+    <!-- ============================================================
+         BOOT WATCHDOG — never leave users on a spinning splash.
+         If the app has not booted within 15s (weak/no network, failed
+         chunk download), show a clear offline card with a Retry button
+         instead of an empty screen. Reloads automatically when the
+         network comes back.
+         ============================================================ -->
+    <div id="boot-fallback">
+      <div class="boot-card">
+        <div class="boot-emoji">📶</div>
+        <h2 class="boot-title">Hakuna mtandao wa kutosha</h2>
+        <p class="boot-text">
+          Programu haikuweza kupakia. Angalia internet yako kisha jaribu tena.
+          Data yako iko salama — mauzo ya awali yamehifadhiwa kwenye simu.
+        </p>
+        <p class="boot-text boot-en">Not enough network. Check your internet and try again.</p>
+        <button type="button" class="boot-retry" onclick="window.location.reload()">Jaribu Tena · Retry</button>
+      </div>
+    </div>
+    <style>
+      #boot-fallback {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99998;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 50%, #ecfdf5 100%);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      [data-theme="dark"] #boot-fallback {
+        background: linear-gradient(135deg, #064e3b 0%, #0b1220 55%, #0b1220 100%);
+      }
+      #boot-fallback .boot-card {
+        max-width: 420px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 26px 22px;
+        text-align: center;
+        box-shadow: 0 10px 34px rgba(15, 23, 42, 0.18);
+      }
+      [data-theme="dark"] #boot-fallback .boot-card {
+        background: #111827;
+      }
+      #boot-fallback .boot-emoji { font-size: 34px; }
+      #boot-fallback .boot-title {
+        margin: 10px 0 8px;
+        font-size: 17px;
+        font-weight: 800;
+        color: #0f172a;
+      }
+      [data-theme="dark"] #boot-fallback .boot-title { color: #f1f5f9; }
+      #boot-fallback .boot-text {
+        margin: 0 0 6px;
+        font-size: 13px;
+        line-height: 1.55;
+        color: #475569;
+      }
+      [data-theme="dark"] #boot-fallback .boot-text { color: #94a3b8; }
+      #boot-fallback .boot-en { font-size: 12px; color: #94a3b8; }
+      #boot-fallback .boot-retry {
+        margin-top: 16px;
+        width: 100%;
+        padding: 13px 18px;
+        border: 0;
+        border-radius: 12px;
+        background: #10b981;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      #boot-fallback .boot-retry:active { background: #059669; }
+    </style>
+    <script>
+      (function () {
+        // The app sets window.__JB_BOOT_OK__ = true as soon as React paints.
+        var shown = false;
+        function showFallback() {
+          if (window.__JB_BOOT_OK__ || shown) return;
+          shown = true;
+          var splash = document.getElementById('splash-screen');
+          if (splash) splash.style.display = 'none';
+          var el = document.getElementById('boot-fallback');
+          if (el) el.style.display = 'flex';
+        }
+        setTimeout(showFallback, 15000);
+        window.addEventListener('online', function () { if (shown) window.location.reload(); });
+      })();
+    </script>
+  </body>
+</html>

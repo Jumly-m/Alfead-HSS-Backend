@@ -1,0 +1,4 @@
+# ALFEAN ENTERPRISES - offline business management system.
+# This app is private and runs on the local computer.
+User-agent: *
+Disallow: /

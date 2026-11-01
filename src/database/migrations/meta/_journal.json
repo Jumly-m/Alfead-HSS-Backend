@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1772551810483,
+      "tag": "0000_far_tombstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1777048597249,
+      "tag": "0001_subscription_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1777123900651,
+      "tag": "0002_swift_penance",
+      "breakpoints": true
+    }
+  ]
+}

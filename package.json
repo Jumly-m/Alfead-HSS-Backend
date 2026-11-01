@@ -1,0 +1,44 @@
+{
+  "name": "hss-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc && node -e \"const fs=require('fs'); fs.cpSync('public','dist/public',{recursive:true}); fs.cpSync('src/database/migrations','dist/database/migrations',{recursive:true});\"",
+    "start": "node dist/index.js",
+    "start:dev": "node dist/index.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/database/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "node -e \"console.error('\\n\\u26d4 drizzle-kit push is DISABLED for this project.\\n\\nThe database is managed by the SQL migrations in src/database/migrations (run automatically at startup, or with: npm run db:migrate). drizzle-kit push compares the outdated Drizzle schema and would DROP real tables/columns (users, sessions, shops...).\\n\\nUse: npm run db:migrate   (or restart the server with RUN_STARTUP_SCHEMA=true)\\n'); process.exit(1)\"",
+    "db:restore:cloud": "tsx src/database/restore-from-cloud.ts",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@better-auth/infra": "^0.3.6",
+    "@hono/node-server": "^2.1.1",
+    "axios": "^1.20.0",
+    "bcryptjs": "^3.0.3",
+    "better-auth": "^1.6.23",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.1",
+    "form-data": "^4.0.0",
+    "hono": "^4.13.8",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^4.6.0",
+    "pg": "^8.23.0",
+    "resend": "^6.28.1",
+    "svix": "^2.5.0",
+    "uuid": "^14.0.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^22.20.3",
+    "@types/node-cron": "^3.0.11",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}

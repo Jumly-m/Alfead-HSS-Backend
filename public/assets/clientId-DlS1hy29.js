@@ -1,0 +1,1 @@
+function n(){try{if(typeof crypto<"u"&&typeof crypto.randomUUID=="function")return crypto.randomUUID()}catch{}return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,t=>{const x=Math.random()*16|0;return(t==="x"?x:x&3|8).toString(16)})}export{n as g};
